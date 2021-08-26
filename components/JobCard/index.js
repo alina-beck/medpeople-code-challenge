@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import CardHeader from './CardHeader';
 
-const JobCard = ({ job }) => {
+const JobCard = ({ job, onSelect }) => {
     const { available_shifts: shifts } = job;
     const averageHourlyPay = Math.round(shifts.reduce((total, shift) => shift.hourly_pay_in_eur + total, 0) / shifts.length);
     const shiftTypes = shifts.reduce((types, shift) => {
@@ -11,7 +11,7 @@ const JobCard = ({ job }) => {
     }, []);
 
     return (
-        <View style={styles.card}>
+        <TouchableOpacity style={styles.card} onPress={onSelect}>
             <CardHeader
                 backgroundImage={job.background_image}
                 logo={job.logo}
@@ -22,7 +22,7 @@ const JobCard = ({ job }) => {
             <View style={styles.content}>
                 <Text>{`${shifts.length} shifts | ${shiftTypes} | average pay: ${averageHourlyPay}/h`}</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 
