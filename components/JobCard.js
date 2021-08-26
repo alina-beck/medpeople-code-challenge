@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import CardHeader from './CardHeader';
+import JobHeader from './JobHeader';
 
 const JobCard = ({ job, onSelect }) => {
     const { available_shifts: shifts } = job;
@@ -12,7 +12,7 @@ const JobCard = ({ job, onSelect }) => {
 
     return (
         <TouchableOpacity style={styles.card} onPress={onSelect}>
-            <CardHeader
+            <JobHeader
                 backgroundImage={job.background_image}
                 logo={job.logo}
                 title={job.employer_name}
