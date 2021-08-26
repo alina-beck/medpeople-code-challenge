@@ -1,27 +1,17 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
-import JobCard from './components/JobCard';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { jobs } from './jobs.json';
+import JobListScreen from './components/JobListScreen';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-        <ScrollView contentContainerStyle={styles.list}>
-            {jobs.map(job => (
-                <JobCard key={job.id} job={job} />
-            ))}
-        </ScrollView>
-    </View>
-  );
-}
+const Stack = createNativeStackNavigator();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  list: {
-      padding: 20,
-  }
-});
+const App = () => (
+    <NavigationContainer>
+        <Stack.Navigator initialRouteName='JobList'>
+            <Stack.Screen name='JobList' component={JobListScreen} />
+        </Stack.Navigator>
+    </NavigationContainer>
+);
+
+export default App;
