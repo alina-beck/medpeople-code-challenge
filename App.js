@@ -1,12 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
+import JobCard from './components/JobCard';
+
+import { jobs } from './jobs.json';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+        <ScrollView contentContainerStyle={styles.list}>
+            {jobs.map(job => (
+                <JobCard key={job.id} job={job} />
+            ))}
+        </ScrollView>
     </View>
   );
 }
@@ -15,7 +20,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
+  list: {
+      padding: 20,
+  }
 });
