@@ -10,8 +10,8 @@ const JobDetailScreen = ({ route }) => {
             <ScrollView style={styles.jobDetails}>
                 <JobDetailSection title='Available Shifts'>
                     {job.available_shifts.map(shift => (
-                        <View style={styles.contentBlock}>
-                            <Text key={shift.date}>{`${shift.date} | ${shift.time} | ${shift.number_of_hours} hours | ${shift.type}`}</Text>
+                        <View key={shift.date} style={styles.contentBlock}>
+                            <Text>{`${shift.date} | ${shift.time} | ${shift.number_of_hours} hours | ${shift.type}`}</Text>
                             <Text>{`Total pay: ${shift.hourly_pay_in_eur * shift.number_of_hours} EUR`}</Text>
                         </View>
                     ))}
