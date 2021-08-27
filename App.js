@@ -14,6 +14,7 @@ const App = () => (
             <Stack.Screen
                 name='JobList'
                 component={JobListScreen}
+                options={{ title: 'Find a job with Medpeople' }}
             />
             <Stack.Screen
                 name='JobDetail'
