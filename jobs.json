@@ -79,7 +79,7 @@
             "available_shifts": [
                 {
                     "date": "2021-10-11",
-                    "hourly_pay_in_eur": 38,
+                    "hourly_pay_in_eur": 60,
                     "number_of_hours": 10,
                     "time": "21:00–07:00",
                     "type": "night"
